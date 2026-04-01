@@ -1,0 +1,234 @@
+:root {
+    --cor-principal: #5d5d7d;
+    --cor-background: #e0e0e0;
+    --cor-texto: #5d5d7d;
+ 
+    --fonte-padrao: "Oswald", sans-serif;
+    --sombra-padrao: 3px 3px 8px rgba(0,0,0,0.25);
+
+    --gap-section: 80px;
+    --padding-lateral: clamp(24px, 5vw, 80px); /*OBS: clamp (valor_minimo, valor_ideal, valor_maximo) Utilizar sempre ao criar
+                                                      um site com mais responsividade dos elementos... */ 
+
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+}
+
+/*Definições base nas TAGS mais utilizadas*/ 
+
+body{
+    font-family: var(--fonte-padrao);
+    background-color: var(--cor-background);
+    color: var(--cor-texto);
+}
+
+img{
+    max-width: 100%; /*impede que a imagem quebre o dimensionamento da tela*/
+}
+
+#main{
+    min-height: 100vh;
+    padding: var(--padding-lateral) var(--gap-section) 40px; /* criando distância entre as bordas do site */
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*cria 2 colunas de tamanho igual.FR (fraction) distribui o espaço proporcionalmente*/
+    grid-template-rows: auto 1fr;
+    gap: 32px;
+    align-items: center;
+    grid-template-areas:"nav nav" "left right"; /*determina as partes que as colunas vão preencher*/
+}
+
+#cabecalho{
+    grid-area: nav;
+    display: flex;
+    gap: 8px;
+}
+
+.button-nav{
+    font-family: var(--fonte-padrao);
+    font-size: 17px;
+    color: var(--cor-principal);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: opacity 0.2s;
+}
+
+.button-nav:hover {opacity: 0.65; }
+.button-nav:active {opacity: 0.45; }
+
+.main-esquerda{
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.main-introduction{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.taishotechlogo{
+    width: clamp(60px, 8vw, 100px);
+    height: auto;
+}
+
+#apresentacao{
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 57px);
+    line-height: 1.0;
+    color: var(--cor-principal);
+    cursor: default;
+}
+
+#descricao{
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.6;
+    color: var(--cor-principal);
+    opacity: 0.6;
+    max-width: 560px;
+    cursor: default;
+}
+
+#botaoprincipal{
+    font-family: var(--fonte-padrao);
+    font-size: 13px;
+    color: #ffffff;
+    background-color: var(--cor-principal);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    box-shadow: var(--sombra-padrao);
+    transition: opacity 0.2s;
+}
+
+#botaoprincipal:hover {opacity: 0.8;}
+#botaoprincipal:active {opacity: 0.6;}
+
+.main-direita{
+    grid-area: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagemprincipal{
+    width: clamp(280px, 45vw, 500px);
+    height:auto;
+}
+
+#servicos{
+    padding: var(--gap-section) var(--padding-lateral);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    cursor: default;
+}
+
+.card-servico{
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: var(--sombra-padrao);
+    width: clamp(260px, 28vw, 380px);
+    padding: 28px 24px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.titulo-card{
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 32px;
+}
+
+.lista-servicos{
+    width: 100%;
+    list-style: none;
+}
+
+.lista-servicos li{
+    font-size: 14px, 1.5vw, 17px;
+    line-height: 1.8;
+}
+
+.img-card {
+    margin-top: 20px;
+    width: clamp(180px, 20vw, 280px);
+    height: auto;
+}
+
+#sobre{
+    padding: var(--padding-lateral) var(--gap-section);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+}
+
+.sobre-esquerda{
+    flex: 1 1 260px;
+    display: flex;
+    justify-content: center;
+}
+
+#img-sobre{
+    width: clamp(220px, 35vw, 520px);
+    height: auto;
+    border-radius: 10px;
+}
+
+.sobre-direita{
+    flex: 2 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.bloco-sobre {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titulo-sobre{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titulo-sobre span{
+    color: var(--cor-principal);
+    opacity: 1;
+}
+
+.descr-sobre{
+    font-size: clamp(13px, 1.3vw, 16px);
+    line-height: 1.7;
+    opacity: 0.65;
+    cursor: default;
+}
+
+#rodape{
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px clamp(24px, 5vw, 80px);
+    font-family: 13px;
+    opacity: 0.85;
+}
